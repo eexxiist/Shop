@@ -1,0 +1,29 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, "sans-serif";
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.nav a:hover {
+    color: #f200ff;
+}
