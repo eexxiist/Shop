@@ -16,6 +16,12 @@ const Navigation = () => {
                     <li>
                         <Link to="/contacts">Contacts</Link>
                     </li>
+                    <li>
+                        <Link to="/dashboard">Dashboard</Link>
+                    </li>
+                    <li>
+                        <Link to="/profile">Profile</Link>
+                    </li>
                 </ul>
             </nav>
         </div>
