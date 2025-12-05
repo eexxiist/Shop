@@ -1,0 +1,25 @@
+.wrapper {
+    padding: 30px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.text {
+    font-size: 20px;
+    margin-bottom: 18px;
+    color: #2d2d2d;
+}
+
+.backBtn {
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.15s ease;
+}
+
+.backBtn:hover {
+    background: #e4e4e4;
+}

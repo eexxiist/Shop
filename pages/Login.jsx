@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "../styles/Login.module.css";
 
 const Login = () => {
     return (
-        <div>
-            <h1>Регистрация</h1>
-            <button>Зарегистрироваться</button>
+        <div className={styles.wrapper}>
+            <h1 className={styles.title}>Регистрация</h1>
+            <button className={styles.button}>Зарегистрироваться</button>
         </div>
     );
 };

@@ -1,28 +1,26 @@
 .nav {
-    top: 0;
-    left: 0;
-    width: 100%;
     display: flex;
-    flex-direction: row;
+    gap: 28px;
+    padding: 12px 0;
+    margin: 0;
+    list-style: none;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 15px;
+    border-bottom: 1px solid #e2e2e2;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.nav li {
     margin: 0;
-    font-family: Roboto, "sans-serif";
+    padding: 0;
 }
 
 .nav a {
+    color: #2a2a2a;
     text-decoration: none;
-    color: #333;
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
 .nav a:hover {
-    color: #f200ff;
+    color: #66489d;
 }
