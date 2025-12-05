@@ -17,6 +17,7 @@ import DashboardProfile from "./pages/DashboardProfile";
 import DashboardSettings from "./pages/DashboardSettings";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+import Products from "./pages/Products";
 
 const Main = () => {
     const loggedIn = false;
@@ -50,6 +51,7 @@ const Main = () => {
                     }
                 />
                 <Route path="/login" element={<Login />} />
+                <Route path={"/products"} element={<Products />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </Router>
