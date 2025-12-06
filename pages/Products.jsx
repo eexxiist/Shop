@@ -5,6 +5,7 @@ import Styles from "../styles/Products.module.css";
 const Products = () => {
     const [categoryList, setCategoryList] = useState([]);
     const [productStart, setProductStart] = useState([]);
+    const [handleProducts, setHandleProducts] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
@@ -23,10 +24,13 @@ const Products = () => {
     }, []);
 
     useEffect(() => {
+        const category = searchParams.get("category");
         const getProducts = async () => {
             try {
                 const res = await fetch(
-                    "https://dummyjson.com/products?limit=20"
+                    category
+                        ? `https://dummyjson.com/products/category/${category}`
+                        : "https://dummyjson.com/products?limit=20"
                 );
                 let data = await res.json();
                 setProductStart(data.products);
@@ -35,14 +39,20 @@ const Products = () => {
             }
         };
         getProducts();
-    }, []);
+    }, [searchParams]);
 
     return (
         <div>
             <div className={Styles.topControls}>
                 <input name="inputSearch" placeholder="Поиск" type="text" />
                 <button>Найти</button>
-                <select name="category" onChange={setSearchParams}>
+                <select
+                    name="category"
+                    value={searchParams.get("category" || "")}
+                    onChange={(e) =>
+                        setSearchParams({ category: e.target.value })
+                    }
+                >
                     {categoryList.map((category) => (
                         <option value={category.slug} key={category.slug}>
                             {category.name}
