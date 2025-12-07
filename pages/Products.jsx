@@ -5,7 +5,7 @@ import Styles from "../styles/Products.module.css";
 const Products = () => {
     const [categoryList, setCategoryList] = useState([]);
     const [productStart, setProductStart] = useState([]);
-    const [handleProducts, setHandleProducts] = useState([]);
+    const [search, setSearch] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
@@ -25,12 +25,11 @@ const Products = () => {
 
     useEffect(() => {
         const category = searchParams.get("category");
+
         const getProducts = async () => {
             try {
                 const res = await fetch(
-                    category
-                        ? `https://dummyjson.com/products/category/${category}`
-                        : "https://dummyjson.com/products?limit=20"
+                    `https://dummyjson.com/products/category/${category}`
                 );
                 let data = await res.json();
                 setProductStart(data.products);
@@ -38,13 +37,29 @@ const Products = () => {
                 console.log("Error");
             }
         };
-        getProducts();
+        category && getProducts();
     }, [searchParams]);
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+        setSearchParams((prevSearchParams) => {
+            const newSearchParams = new URLSearchParams(prevSearchParams);
+            newSearchParams.set("search", e.target.value);
+            return newSearchParams;
+        });
+    };
+
+    console.log(searchParams);
 
     return (
         <div>
             <div className={Styles.topControls}>
-                <input name="inputSearch" placeholder="Поиск" type="text" />
+                <input
+                    name="inputSearch"
+                    placeholder="Поиск"
+                    type="text"
+                    onChange={handleSearch}
+                />
                 <button>Найти</button>
                 <select
                     name="category"
